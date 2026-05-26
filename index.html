@@ -6,34 +6,34 @@
   <title>Analogová Inteligence</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #12100e; color: #fff; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F7F3EC; color: #0a0a1a; }
     .wrap { max-width: 960px; margin: 0 auto; }
 
-    .top { background: #12100e; padding: 48px 50px 48px; }
-    .meta { font-size: 9px; letter-spacing: 6px; color: rgba(255,255,255,0.2); margin-bottom: 52px; }
+    .top { background: #F7F3EC; padding: 48px 50px; }
+    .meta { font-size: 9px; letter-spacing: 6px; color: rgba(0,0,0,0.2); margin-bottom: 52px; }
     .meta span { color: #FF3B8B; }
-    .title-a { font-size: clamp(52px, 10vw, 100px); font-weight: 700; color: #fff; line-height: 0.88; letter-spacing: -4px; margin-bottom: 4px; }
-    .title-i { font-size: clamp(52px, 10vw, 100px); font-weight: 700; color: #fff; line-height: 0.88; letter-spacing: -4px; }
+    .title-a { font-size: clamp(52px, 10vw, 100px); font-weight: 700; color: #0a0a1a; line-height: 0.88; letter-spacing: -4px; margin-bottom: 4px; }
+    .title-i { font-size: clamp(52px, 10vw, 100px); font-weight: 700; color: #0a0a1a; line-height: 0.88; letter-spacing: -4px; }
     .title-a .ai, .title-i .ai { color: #3B8BFF; }
     .subtitle-row { display: flex; align-items: baseline; gap: 16px; margin-bottom: 48px; flex-wrap: wrap; }
-    .funguje { font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 3px; white-space: nowrap; }
+    .funguje { font-size: 11px; color: rgba(0,0,0,0.25); letter-spacing: 3px; white-space: nowrap; }
 
-    .provokace-italic { font-size: 13px; color: rgba(255,255,255,0.3); line-height: 1.9; margin-bottom: 12px; font-style: italic; }
-    .provokace-bold { font-size: clamp(24px, 4vw, 42px); font-weight: 700; color: #fff; line-height: 1.2; letter-spacing: -1px; margin-bottom: 48px; }
+    .provokace-italic { font-size: 13px; color: rgba(0,0,0,0.35); line-height: 1.9; margin-bottom: 12px; font-style: italic; }
+    .provokace-bold { font-size: clamp(24px, 4vw, 42px); font-weight: 700; color: #0a0a1a; line-height: 1.2; letter-spacing: -1px; margin-bottom: 48px; }
 
     .kroky { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
     .krok { border-left: 2px solid; padding-left: 16px; }
     .krok:nth-child(1) { border-color: #3B8BFF; }
     .krok:nth-child(2) { border-color: #22CC66; }
     .krok:nth-child(3) { border-color: #FF3B8B; }
-    .krok-num { font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 2px; margin-bottom: 6px; }
-    .krok-title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }
-    .krok-desc { font-size: 12px; color: rgba(255,255,255,0.35); line-height: 1.7; }
+    .krok-num { font-size: 11px; color: rgba(0,0,0,0.25); letter-spacing: 2px; margin-bottom: 6px; }
+    .krok-title { font-size: 15px; font-weight: 600; color: #0a0a1a; margin-bottom: 6px; }
+    .krok-desc { font-size: 12px; color: rgba(0,0,0,0.4); line-height: 1.7; }
 
-    .bottom { background: #12100e; padding: 48px 50px; border-top: 0.5px solid rgba(255,255,255,0.06); }
+    .bottom { background: #F7F3EC; padding: 48px 50px; border-top: 0.5px solid rgba(0,0,0,0.06); }
     .bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
 
-    .tagline { font-size: clamp(28px, 4vw, 48px); font-weight: 700; color: #fff; line-height: 1.1; letter-spacing: -2px; margin-bottom: 32px; }
+    .tagline { font-size: clamp(28px, 4vw, 48px); font-weight: 700; color: #0a0a1a; line-height: 1.1; letter-spacing: -2px; margin-bottom: 32px; }
     .tagline span { color: #22CC66; }
 
     .pro-koho { display: flex; flex-direction: column; gap: 14px; }
@@ -42,18 +42,18 @@
     .pro-plus.blue { color: #3B8BFF; }
     .pro-plus.green { color: #22CC66; }
     .pro-plus.pink { color: #FF3B8B; }
-    .pro-text { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .pro-text { font-size: 13px; color: rgba(0,0,0,0.55); line-height: 1.7; }
 
-    .reg-label { font-size: 11px; letter-spacing: 3px; color: rgba(255,255,255,0.2); margin-bottom: 16px; }
-    .reg-desc { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 20px; line-height: 1.7; }
+    .reg-label { font-size: 11px; letter-spacing: 3px; color: rgba(0,0,0,0.25); margin-bottom: 16px; }
+    .reg-desc { font-size: 12px; color: rgba(0,0,0,0.4); margin-bottom: 20px; line-height: 1.7; }
     .reg-form { display: flex; flex-direction: column; gap: 8px; }
     .reg-form input, .reg-form textarea {
       background: transparent; border: none;
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-      padding: 10px 0; color: #fff; font-size: 14px;
+      border-bottom: 1px solid rgba(0,0,0,0.15);
+      padding: 10px 0; color: #0a0a1a; font-size: 14px;
       font-family: inherit; width: 100%; outline: none;
     }
-    .reg-form input::placeholder, .reg-form textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .reg-form input::placeholder, .reg-form textarea::placeholder { color: rgba(0,0,0,0.3); }
     .reg-form textarea { resize: none; margin-bottom: 8px; }
     .reg-form button {
       background: #FF3B8B; color: #fff; border: none;
@@ -63,12 +63,12 @@
     }
     .reg-form button:hover { opacity: 0.9; }
 
-    footer { background: #0d0b09; padding: 14px 50px; border-top: 0.5px solid rgba(255,255,255,0.04); }
+    footer { background: #0a0a1a; padding: 14px 50px; }
     .footer-inner { display: flex; justify-content: space-between; align-items: center; }
     footer p { font-size: 9px; letter-spacing: 4px; color: rgba(255,255,255,0.15); }
     footer span { color: #FF3B8B; opacity: 0.5; }
 
-    .success { display: none; background: rgba(34,204,102,0.1); border: 1px solid #22CC66; padding: 16px; font-size: 13px; color: #22CC66; text-align: center; margin-top: 8px; }
+    .success { display: none; background: rgba(34,204,102,0.08); border: 1px solid #22CC66; padding: 16px; font-size: 13px; color: #22CC66; text-align: center; margin-top: 8px; }
 
     @media (max-width: 640px) {
       .top, .bottom { padding: 32px 24px; }
