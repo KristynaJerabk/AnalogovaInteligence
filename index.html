@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analogová Inteligence</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #F7F3EC; color: #0a0a1a; }
+
+    .top { background: #F7F3EC; padding: 48px 50px 48px; }
+    .meta { font-size: 9px; letter-spacing: 6px; color: rgba(0,0,0,0.2); margin-bottom: 52px; }
+    .meta span { color: #FF3B8B; }
+    .title-a { font-size: clamp(52px, 10vw, 100px); font-weight: 700; color: #0a0a1a; line-height: 0.88; letter-spacing: -4px; margin-bottom: 4px; }
+    .title-i { font-size: clamp(52px, 10vw, 100px); font-weight: 700; color: #0a0a1a; line-height: 0.88; letter-spacing: -4px; }
+    .title-a .ai, .title-i .ai { color: #3B8BFF; }
+    .subtitle-row { display: flex; align-items: baseline; gap: 16px; margin-bottom: 48px; flex-wrap: wrap; }
+    .funguje { font-size: 11px; color: rgba(0,0,0,0.25); letter-spacing: 3px; white-space: nowrap; }
+
+    .provokace-italic { font-size: 13px; color: rgba(0,0,0,0.35); line-height: 1.9; margin-bottom: 12px; font-style: italic; }
+    .provokace-bold { font-size: clamp(24px, 4vw, 42px); font-weight: 700; color: #0a0a1a; line-height: 1.2; letter-spacing: -1px; margin-bottom: 48px; }
+
+    .kroky { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .krok { border-left: 2px solid; padding-left: 16px; }
+    .krok:nth-child(1) { border-color: #3B8BFF; }
+    .krok:nth-child(2) { border-color: #22CC66; }
+    .krok:nth-child(3) { border-color: #FF3B8B; }
+    .krok-num { font-size: 11px; color: rgba(0,0,0,0.25); letter-spacing: 2px; margin-bottom: 6px; }
+    .krok-title { font-size: 15px; font-weight: 600; color: #0a0a1a; margin-bottom: 6px; }
+    .krok-desc { font-size: 12px; color: rgba(0,0,0,0.4); line-height: 1.7; }
+
+    .bottom { background: #F7F3EC; padding: 48px 50px; border-top: 0.5px solid rgba(0,0,0,0.06); }
+    .bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+
+    .tagline { font-size: clamp(28px, 4vw, 48px); font-weight: 700; color: #0a0a1a; line-height: 1.1; letter-spacing: -2px; margin-bottom: 32px; }
+    .tagline span { color: #22CC66; }
+
+    .pro-koho { display: flex; flex-direction: column; gap: 14px; }
+    .pro-item { display: flex; gap: 12px; align-items: flex-start; }
+    .pro-plus { font-weight: 700; font-size: 16px; line-height: 1.4; }
+    .pro-plus.blue { color: #3B8BFF; }
+    .pro-plus.green { color: #22CC66; }
+    .pro-plus.pink { color: #FF3B8B; }
+    .pro-text { font-size: 13px; color: rgba(0,0,0,0.55); line-height: 1.7; }
+
+    .reg-label { font-size: 11px; letter-spacing: 3px; color: rgba(0,0,0,0.25); margin-bottom: 16px; }
+    .reg-desc { font-size: 12px; color: rgba(0,0,0,0.4); margin-bottom: 20px; line-height: 1.7; }
+    .reg-form { display: flex; flex-direction: column; gap: 8px; }
+    .reg-form input, .reg-form textarea {
+      background: transparent; border: none;
+      border-bottom: 1px solid rgba(0,0,0,0.15);
+      padding: 10px 0; color: #0a0a1a; font-size: 14px;
+      font-family: inherit; width: 100%; outline: none;
+    }
+    .reg-form textarea { resize: none; margin-bottom: 8px; }
+    .reg-form button {
+      background: #FF3B8B; color: #fff; border: none;
+      padding: 14px; font-size: 11px; font-weight: 700;
+      cursor: pointer; letter-spacing: 3px; width: 100%;
+      font-family: inherit; margin-top: 4px;
+    }
+    .reg-form button:hover { opacity: 0.9; }
+
+    footer { background: #0a0a1a; padding: 14px 50px; display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 9px; letter-spacing: 4px; color: rgba(255,255,255,0.15); }
+    footer span { color: #FF3B8B; opacity: 0.5; }
+
+    .success { display: none; background: rgba(34,204,102,0.1); border: 1px solid #22CC66; padding: 16px; font-size: 13px; color: #22CC66; text-align: center; margin-top: 8px; }
+
+    @media (max-width: 640px) {
+      .top, .bottom { padding: 32px 24px; }
+      footer { padding: 14px 24px; }
+      .kroky { grid-template-columns: 1fr; gap: 24px; }
+      .bottom-grid { grid-template-columns: 1fr; gap: 40px; }
+      .subtitle-row { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top">
+    <p class="meta">PLZEŇ · 2026 &nbsp;·&nbsp; <span>OFFLINE · KRITICKÉ MYŠLENÍ</span></p>
+
+    <p class="title-a"><span class="ai">A</span>nalogová</p>
+    <div class="subtitle-row">
+      <p class="title-i"><span class="ai">I</span>nteligence</p>
+      <p class="funguje">FUNGUJE OD NAROZENÍ · AI</p>
+    </div>
+
+    <p class="provokace-italic">Chodíš do posilovny, jíš zdravě, medituješ, biohackuješ,</p>
+    <p class="provokace-bold">ale mozek jen scrolluje?</p>
+
+    <div class="kroky">
+      <div class="krok">
+        <p class="krok-num">01</p>
+        <p class="krok-title">Přijdeš</p>
+        <p class="krok-desc">Papír, tužka, hlava. Nic víc.</p>
+      </div>
+      <div class="krok">
+        <p class="krok-num">02</p>
+        <p class="krok-title">Cvičíš</p>
+        <p class="krok-desc">Čteš, píšeš, argumentuješ.</p>
+      </div>
+      <div class="krok">
+        <p class="krok-num">03</p>
+        <p class="krok-title">Odejdeš vyřízený</p>
+        <p class="krok-desc">Hlava bude bolet. To je správně.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="bottom-grid">
+      <div>
+        <p class="tagline">Hlava je fakt<br>dobrá věc.<br><span>Zkus ji.</span></p>
+        <div class="pro-koho">
+          <div class="pro-item">
+            <span class="pro-plus blue">+</span>
+            <p class="pro-text">Každý den pracuješ s technologiemi a chceš vědět, že tvůj mozek ještě funguje sám</p>
+          </div>
+          <div class="pro-item">
+            <span class="pro-plus green">+</span>
+            <p class="pro-text">Hledáš offline prostor bez obrazovky a bez nápovědy</p>
+          </div>
+          <div class="pro-item">
+            <span class="pro-plus pink">+</span>
+            <p class="pro-text">Chceš odejít vyřízený – jako z posilovny, jen bez bolavých svalů</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="reg-label">REGISTRACE</p>
+        <p class="reg-desc">Datum zatím není. Zaregistruj se a dáme ti vědět.</p>
+        <form class="reg-form" id="regForm">
+          <input type="text" placeholder="Jméno" required />
+          <input type="email" placeholder="Email" required />
+          <textarea placeholder="Proč chceš přijít?" rows="2"></textarea>
+          <button type="submit">CHCI SE REGISTROVAT</button>
+        </form>
+        <div class="success" id="success">Díky! Ozveme se ti až bude datum. 🧠</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>AI SE SNAŽÍ. MOZEK UMÍ.</p>
+    <p><span>ZDARMA</span></p>
+  </footer>
+
+  <script>
+    document.getElementById('regForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
