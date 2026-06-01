@@ -93,7 +93,7 @@
 
     .kroky {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 32px;
       list-style: none;
     }
@@ -102,6 +102,7 @@
     .krok:nth-child(1) { border-color: #5b9aff; }
     .krok:nth-child(2) { border-color: #22CC66; }
     .krok:nth-child(3) { border-color: #e0607a; }
+    .krok:nth-child(4) { border-color: #f0a030; }
 
     .krok-num {
       font-size: 11px;
@@ -287,18 +288,23 @@
         <div class="kroky" role="list" aria-label="Jak to funguje">
           <div class="krok" role="listitem">
             <p class="krok-num">01</p>
-            <p class="krok-title">Přijdeš</p>
-            <p class="krok-desc">Telefon do kapsy. Vážně.</p>
+            <p class="krok-title">Těšíš se</p>
+            <p class="krok-desc">Něco jiného. Konečně.</p>
           </div>
           <div class="krok" role="listitem">
             <p class="krok-num">02</p>
-            <p class="krok-title">Cvičíš</p>
-            <p class="krok-desc">Čteš text. Přemýšlíš. Píšeš co si myslíš ty – ne co by napsal model.</p>
+            <p class="krok-title">Přijdeš</p>
+            <p class="krok-desc">Nervozita? Jo, trochu. Normální.</p>
           </div>
           <div class="krok" role="listitem">
             <p class="krok-num">03</p>
+            <p class="krok-title">Pracuješ</p>
+            <p class="krok-desc">Tužka. Papír. Uff. Ale jo.</p>
+          </div>
+          <div class="krok" role="listitem">
+            <p class="krok-num">04</p>
             <p class="krok-title">Odejdeš</p>
-            <p class="krok-desc">Unavený. Ale dobře unavený. Jako po běhu, jen bez potu.</p>
+            <p class="krok-desc">Cože. Moje hlava. Chci znovu.</p>
           </div>
         </div>
       </div>
