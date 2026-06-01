@@ -10,20 +10,19 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #F7F3EC;
-      color: #1a1a1a;
+      background: #12100e;
+      color: #f0ece4;
       font-size: 16px;
       line-height: 1.5;
     }
 
     .wrap { max-width: 960px; margin: 0 auto; }
 
-    /* Skip link pro klávesnicové uživatele */
     .skip-link {
       position: absolute;
       top: -40px;
       left: 0;
-      background: #FF3B8B;
+      background: #e0407a;
       color: #fff;
       padding: 8px 16px;
       font-size: 14px;
@@ -33,50 +32,34 @@
     }
     .skip-link:focus { top: 0; }
 
-    /* Focus viditelný pro klávesnici */
     :focus-visible {
-      outline: 3px solid #3B8BFF;
+      outline: 3px solid #5b9aff;
       outline-offset: 3px;
     }
 
-    .top { background: #F7F3EC; padding: 48px 50px; }
+    .top { background: #12100e; padding: 48px 50px; }
 
     .meta {
       font-size: 11px;
       letter-spacing: 4px;
-      color: #5a5650; /* kontrast 4.6:1 na #F7F3EC */
+      color: #8a8278;
       margin-bottom: 52px;
     }
-    .meta span { color: #c4185a; } /* kontrast 5.2:1 */
+    .meta span { color: #e0607a; }
 
     h1 {
       font-size: clamp(52px, 10vw, 100px);
       font-weight: 700;
-      color: #1a1a1a;
+      color: #f0ece4;
       line-height: 0.88;
       letter-spacing: -4px;
-      margin-bottom: 4px;
-    }
-    h1 .ai { color: #1a5fd4; } /* kontrast 5.1:1 na béžové */
-
-    .subtitle-row {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
       margin-bottom: 48px;
-      flex-wrap: wrap;
     }
-
-    .funguje {
-      font-size: 11px;
-      color: #5a5650;
-      letter-spacing: 3px;
-      white-space: nowrap;
-    }
+    h1 .ai { color: #5b9aff; }
 
     .provokace-italic {
       font-size: 16px;
-      color: #4a4642;
+      color: #9a9288;
       line-height: 1.9;
       margin-bottom: 12px;
       font-style: italic;
@@ -85,7 +68,7 @@
     .provokace-bold {
       font-size: clamp(24px, 4vw, 42px);
       font-weight: 700;
-      color: #1a1a1a;
+      color: #f0ece4;
       line-height: 1.2;
       letter-spacing: -1px;
       margin-bottom: 48px;
@@ -95,16 +78,17 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
+      list-style: none;
     }
 
     .krok { border-left: 3px solid; padding-left: 16px; }
-    .krok:nth-child(1) { border-color: #1a5fd4; }
-    .krok:nth-child(2) { border-color: #1a8c4e; }
-    .krok:nth-child(3) { border-color: #c4185a; }
+    .krok:nth-child(1) { border-color: #5b9aff; }
+    .krok:nth-child(2) { border-color: #22CC66; }
+    .krok:nth-child(3) { border-color: #e0607a; }
 
     .krok-num {
       font-size: 11px;
-      color: #5a5650;
+      color: #6a6258;
       letter-spacing: 2px;
       margin-bottom: 6px;
     }
@@ -112,20 +96,20 @@
     .krok-title {
       font-size: 16px;
       font-weight: 600;
-      color: #1a1a1a;
+      color: #f0ece4;
       margin-bottom: 6px;
     }
 
     .krok-desc {
       font-size: 15px;
-      color: #3a3632;
+      color: #a09890;
       line-height: 1.7;
     }
 
     .bottom {
-      background: #F7F3EC;
+      background: #12100e;
       padding: 48px 50px;
-      border-top: 1px solid rgba(0,0,0,0.1);
+      border-top: 1px solid rgba(255,255,255,0.07);
     }
 
     .bottom-grid {
@@ -138,57 +122,54 @@
     h2 {
       font-size: clamp(28px, 4vw, 48px);
       font-weight: 700;
-      color: #1a1a1a;
+      color: #f0ece4;
       line-height: 1.1;
       letter-spacing: -2px;
       margin-bottom: 32px;
     }
-    h2 span { color: #1a8c4e; }
+    h2 span { color: #22CC66; }
 
-    .pro-koho { display: flex; flex-direction: column; gap: 14px; }
+    .pro-koho { display: flex; flex-direction: column; gap: 14px; list-style: none; }
     .pro-item { display: flex; gap: 12px; align-items: flex-start; }
 
     .pro-plus {
       font-weight: 700;
       font-size: 18px;
       line-height: 1.4;
-      aria-hidden: true;
     }
-    .pro-plus.blue { color: #1a5fd4; }
-    .pro-plus.green { color: #1a8c4e; }
-    .pro-plus.pink { color: #c4185a; }
+    .pro-plus.blue { color: #5b9aff; }
+    .pro-plus.green { color: #22CC66; }
+    .pro-plus.pink { color: #e0607a; }
 
     .pro-text {
       font-size: 15px;
-      color: #3a3632;
+      color: #a09890;
       line-height: 1.7;
     }
-
-    .reg-section { }
 
     .reg-label {
       font-size: 11px;
       letter-spacing: 3px;
-      color: #5a5650;
+      color: #8a8278;
       margin-bottom: 16px;
       display: block;
     }
 
     .reg-desc {
       font-size: 15px;
-      color: #4a4642;
+      color: #9a9288;
       margin-bottom: 24px;
       line-height: 1.7;
     }
 
     .reg-form { display: flex; flex-direction: column; gap: 16px; }
 
-    .form-group { display: flex; flex-direction: column; gap: 4px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
 
     .form-group label {
       font-size: 12px;
       letter-spacing: 2px;
-      color: #4a4642;
+      color: #a09890;
       font-weight: 500;
     }
 
@@ -196,9 +177,9 @@
     .form-group textarea {
       background: transparent;
       border: none;
-      border-bottom: 2px solid #3a3632;
+      border-bottom: 2px solid #3a3630;
       padding: 10px 0;
-      color: #1a1a1a;
+      color: #f0ece4;
       font-size: 16px;
       font-family: inherit;
       width: 100%;
@@ -207,17 +188,15 @@
     }
 
     .form-group input:focus,
-    .form-group textarea:focus {
-      border-bottom-color: #1a5fd4;
-    }
+    .form-group textarea:focus { border-bottom-color: #5b9aff; }
 
     .form-group input::placeholder,
-    .form-group textarea::placeholder { color: #7a7670; }
+    .form-group textarea::placeholder { color: #5a5650; }
 
     .form-group textarea { resize: vertical; min-height: 80px; }
 
     .reg-form button {
-      background: #c4185a;
+      background: #e0407a;
       color: #fff;
       border: none;
       padding: 16px;
@@ -231,24 +210,25 @@
       transition: background 0.2s;
     }
 
-    .reg-form button:hover { background: #a01249; }
-    .reg-form button:focus-visible { outline: 3px solid #1a5fd4; outline-offset: 3px; }
+    .reg-form button:hover { background: #c0305a; }
+    .reg-form button:focus-visible { outline: 3px solid #5b9aff; outline-offset: 3px; }
 
     .success {
       display: none;
-      background: rgba(26,140,78,0.08);
-      border: 2px solid #1a8c4e;
+      background: rgba(34,204,102,0.08);
+      border: 2px solid #22CC66;
       padding: 16px;
       font-size: 15px;
-      color: #1a5e36;
+      color: #22CC66;
       text-align: center;
       margin-top: 8px;
       border-radius: 4px;
     }
 
     footer {
-      background: #1a1a1a;
+      background: #0a0806;
       padding: 16px 50px;
+      border-top: 1px solid rgba(255,255,255,0.04);
     }
 
     .footer-inner {
@@ -260,17 +240,16 @@
     footer p {
       font-size: 11px;
       letter-spacing: 3px;
-      color: #8a8680;
+      color: #5a5650;
     }
 
-    footer span { color: #e06090; }
+    footer span { color: #e0607a; }
 
     @media (max-width: 640px) {
       .top, .bottom { padding: 32px 24px; }
       footer { padding: 16px 24px; }
       .kroky { grid-template-columns: 1fr; gap: 24px; }
       .bottom-grid { grid-template-columns: 1fr; gap: 40px; }
-      .subtitle-row { flex-direction: column; gap: 8px; }
     }
   </style>
 </head>
@@ -285,30 +264,26 @@
 
         <h1><span class="ai">A</span>nalogová<br><span class="ai">I</span>nteligence</h1>
 
-        <div class="subtitle-row" aria-label="Podtitul">
-          <p class="funguje">FUNGUJE OD NAROZENÍ · AI</p>
-        </div>
-
         <p class="provokace-italic">Chodíš do posilovny, jíš zdravě, medituješ, biohackuješ,</p>
         <p class="provokace-bold">ale mozek jen scrolluje?</p>
 
-        <ol class="kroky" aria-label="Jak to funguje">
-          <li class="krok">
+        <div class="kroky" role="list" aria-label="Jak to funguje">
+          <div class="krok" role="listitem">
             <p class="krok-num">01</p>
             <p class="krok-title">Přijdeš</p>
             <p class="krok-desc">Papír, tužka, hlava. Nic víc.</p>
-          </li>
-          <li class="krok">
+          </div>
+          <div class="krok" role="listitem">
             <p class="krok-num">02</p>
             <p class="krok-title">Cvičíš</p>
             <p class="krok-desc">Čteš, píšeš, argumentuješ.</p>
-          </li>
-          <li class="krok">
+          </div>
+          <div class="krok" role="listitem">
             <p class="krok-num">03</p>
             <p class="krok-title">Odejdeš vyřízený</p>
             <p class="krok-desc">Hlava bude bolet. To je správně.</p>
-          </li>
-        </ol>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -333,7 +308,7 @@
             </ul>
           </div>
 
-          <div class="reg-section" id="registrace">
+          <div id="registrace">
             <span class="reg-label">REGISTRACE</span>
             <p class="reg-desc">Datum zatím není. Zaregistruj se a dáme ti vědět.</p>
             <form class="reg-form" id="regForm" novalidate>
@@ -346,7 +321,7 @@
                 <input type="email" id="email" name="email" placeholder="tvuj@email.cz" required autocomplete="email" />
               </div>
               <div class="form-group">
-                <label for="proc">PROČ CHCEŠ PŘIJÍT? <span style="font-weight:400; letter-spacing:0;">(nepovinné)</span></label>
+                <label for="proc">PROČ CHCEŠ PŘIJÍT? <span style="font-weight:400; letter-spacing:0; font-size:11px;">(nepovinné)</span></label>
                 <textarea id="proc" name="proc" placeholder="Napiš nám pár slov..." rows="3"></textarea>
               </div>
               <button type="submit">CHCI SE REGISTROVAT</button>
