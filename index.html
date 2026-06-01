@@ -45,7 +45,6 @@
       color: #8a8278;
       margin-bottom: 52px;
     }
-    .meta span { color: #e0607a; }
 
     h1 {
       font-size: clamp(52px, 10vw, 100px);
@@ -56,15 +55,6 @@
       margin-bottom: 48px;
     }
     h1 .ai { color: #5b9aff; }
-
-    .mozek-in {
-      font-size: 22px;
-      font-weight: 400;
-      color: #22CC66;
-      font-style: italic;
-      margin-bottom: 48px;
-      letter-spacing: -0.5px;
-    }
 
     .provokace-italic {
       font-size: 16px;
@@ -150,20 +140,12 @@
     .pro-koho { display: flex; flex-direction: column; gap: 14px; list-style: none; }
     .pro-item { display: flex; gap: 12px; align-items: flex-start; }
 
-    .pro-plus {
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 1.4;
-    }
+    .pro-plus { font-weight: 700; font-size: 18px; line-height: 1.4; }
     .pro-plus.blue { color: #5b9aff; }
     .pro-plus.green { color: #22CC66; }
     .pro-plus.pink { color: #e0607a; }
 
-    .pro-text {
-      font-size: 15px;
-      color: #a09890;
-      line-height: 1.7;
-    }
+    .pro-text { font-size: 15px; color: #a09890; line-height: 1.7; }
 
     .reg-label {
       font-size: 11px;
@@ -181,7 +163,6 @@
     }
 
     .reg-form { display: flex; flex-direction: column; gap: 16px; }
-
     .form-group { display: flex; flex-direction: column; gap: 6px; }
 
     .form-group label {
@@ -237,6 +218,8 @@
       margin-top: 4px;
       display: none;
     }
+
+    .success {
       display: none;
       background: rgba(34,204,102,0.08);
       border: 2px solid #22CC66;
@@ -254,18 +237,9 @@
       border-top: 1px solid rgba(255,255,255,0.04);
     }
 
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; }
 
-    footer p {
-      font-size: 11px;
-      letter-spacing: 3px;
-      color: #5a5650;
-    }
-
+    footer p { font-size: 11px; letter-spacing: 3px; color: #5a5650; }
     footer span { color: #e0607a; }
 
     @media (max-width: 640px) {
@@ -283,9 +257,10 @@
   <main>
     <section class="top" aria-label="Úvod">
       <div class="wrap">
-        <p class="meta" aria-label="Lokalita a rok">PLZEŇ · 2026</p>
+        <p class="meta">PLZEŇ · 2026</p>
 
         <h1><span class="ai">A</span>nalogová<br><span class="ai">I</span>nteligence</h1>
+
         <p class="provokace-italic">Scrolluješ. Promptuješ. Kopíruješ. Ani nevíš kdy se to stalo.</p>
         <p class="provokace-mid">Proč se namáhat?</p>
         <p class="provokace-bold">Právě proto. Mozek je IN.</p>
