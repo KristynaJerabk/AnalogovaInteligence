@@ -377,14 +377,14 @@
       btn.textContent = 'Odesílám...';
       btn.disabled = true;
 
-      fetch('https://script.google.com/macros/s/AKfycby8EFj2-pId3xGTfSFeoB9ODu6sUeF0VLHIC2f-3sm3VZ3V4s72-5ik6D07T2DmEdJHbA/exec', {
-        method: 'POST',
-        body: JSON.stringify({
-          jmeno: jmeno,
-          email: email,
-          proc: document.getElementById('proc').value.trim()
-        })
-      })
+      const scriptUrl = 'https://script.google.com/macros/s/AKfycby8EFj2-pId3xGTfSFeoB9ODu6sUeF0VLHIC2f-3sm3VZ3V4s72-5ik6D07T2DmEdJHbA/exec';
+      const params = new URLSearchParams({
+        jmeno: jmeno,
+        email: email,
+        proc: document.getElementById('proc').value.trim()
+      });
+
+      fetch(scriptUrl + '?' + params.toString(), { method: 'GET', mode: 'no-cors' })
       .then(() => {
         document.getElementById('regForm').style.display = 'none';
         document.getElementById('success').style.display = 'block';
