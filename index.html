@@ -356,7 +356,7 @@
               </div>
               <button type="submit">JSEM IN</button>
             </form>
-            <div class="success" id="success" role="alert" aria-live="polite" style="display:none;">
+            <div class="success" id="success" role="alert" aria-live="polite">
               Díky! Ozveme se ti až bude datum. 🧠
             </div>
           </div>
@@ -398,7 +398,7 @@
 
       if (!valid) return;
       this.style.display = 'none';
-      document.getElementById('success').style.display = 'block';
+      document.getElementById('success').classList.add('visible');
     });
   </script>
 
