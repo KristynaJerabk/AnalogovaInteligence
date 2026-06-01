@@ -231,7 +231,12 @@
     .reg-form button:hover { background: #c0305a; }
     .reg-form button:focus-visible { outline: 3px solid #5b9aff; outline-offset: 3px; }
 
-    .success {
+    .form-error {
+      font-size: 12px;
+      color: #e0607a;
+      margin-top: 4px;
+      display: none;
+    }
       display: none;
       background: rgba(34,204,102,0.08);
       border: 2px solid #22CC66;
@@ -281,7 +286,7 @@
         <p class="meta" aria-label="Lokalita a rok">PLZEŇ · 2026</p>
 
         <h1><span class="ai">A</span>nalogová<br><span class="ai">I</span>nteligence</h1>
-        <p class="provokace-italic">Scrolluješ. Promptuješ. Kopíruješ a ani nevíš kdy se to stalo.</p>
+        <p class="provokace-italic">Scrolluješ. Promptuješ. Kopíruješ. Ani nevíš kdy se to stalo.</p>
         <p class="provokace-mid">Proč se namáhat?</p>
         <p class="provokace-bold">Právě proto. Mozek je IN.</p>
 
@@ -294,17 +299,17 @@
           <div class="krok" role="listitem">
             <p class="krok-num">02</p>
             <p class="krok-title">Přijdeš</p>
-            <p class="krok-desc">Nervozita? Ale jo, trochu.</p>
+            <p class="krok-desc">Nervozita? Jo, trochu. Normální.</p>
           </div>
           <div class="krok" role="listitem">
             <p class="krok-num">03</p>
             <p class="krok-title">Pracuješ</p>
-            <p class="krok-desc">Tužka, papír...Uff.</p>
+            <p class="krok-desc">Tužka. Papír. Uff. Ale jo.</p>
           </div>
           <div class="krok" role="listitem">
             <p class="krok-num">04</p>
             <p class="krok-title">Odejdeš</p>
-            <p class="krok-desc">Cože? Moje hlava. Já chci asi znovu.</p>
+            <p class="krok-desc">Cože. Moje hlava. Chci znovu.</p>
           </div>
         </div>
       </div>
@@ -318,7 +323,7 @@
             <ul class="pro-koho" aria-label="Pro koho je AI určena">
               <li class="pro-item">
                 <span class="pro-plus blue" aria-hidden="true">+</span>
-                <p class="pro-text">Používáš AI každý den. A je to super. Ale někdy tě napadne – hele, není to už trošku moc?</p>
+                <p class="pro-text">Používáš AI každý den. A jsi za to rád. Ale někdy tě napadne – hele, není to už trošku moc?</p>
               </li>
               <li class="pro-item">
                 <span class="pro-plus green" aria-hidden="true">+</span>
@@ -326,14 +331,14 @@
               </li>
               <li class="pro-item">
                 <span class="pro-plus pink" aria-hidden="true">+</span>
-                <p class="pro-text">Prostě si chceš sednout, psát na papír a zjistit že to ještě jde.</p>
+                <p class="pro-text">Prostě si chceš sednout, vzít tužku a zjistit že to ještě jde.</p>
               </li>
             </ul>
           </div>
 
           <div id="registrace">
             <span class="reg-label">REGISTRACE</span>
-            <p class="reg-desc">Dělám to poprvé a nemám datum. Mám akorát nápad a lektora. Nech mi kontakt – až bude místo a čas, ozvu se. Nech mi kontakt – až bude místo a čas, ozvu se. Žádný newsletter. Ani nevím jak se to dělá.</p>
+            <p class="reg-desc">Dělám to poprvé. Nemám datum, nemám sál, mám akorát nápad a lektora. Nech mi kontakt – až bude místo a čas, ozvu se. Žádný newsletter. Ani nevím jak se to dělá.</p>
             <form class="reg-form" id="regForm" novalidate>
               <div class="form-group">
                 <label for="jmeno">JMÉNO</label>
@@ -342,6 +347,7 @@
               <div class="form-group">
                 <label for="email">EMAIL</label>
                 <input type="email" id="email" name="email" placeholder="tvuj@email.cz" required autocomplete="email" />
+                <span class="form-error" id="emailError">Tohle nevypadá jako email. Zkus znovu.</span>
               </div>
               <div class="form-group">
                 <label for="proc">PROČ CHCEŠ PŘIJÍT? <span style="font-weight:400; letter-spacing:0; font-size:11px;">(nepovinné)</span></label>
@@ -370,6 +376,16 @@
       e.preventDefault();
       const jmeno = document.getElementById('jmeno').value.trim();
       const email = document.getElementById('email').value.trim();
+      const emailError = document.getElementById('emailError');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        emailError.style.display = 'block';
+        document.getElementById('email').focus();
+        return;
+      }
+      emailError.style.display = 'none';
+
       if (!jmeno || !email) return;
       this.style.display = 'none';
       document.getElementById('success').style.display = 'block';
