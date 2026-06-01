@@ -398,7 +398,8 @@
 
       if (!valid) return;
       this.style.display = 'none';
-      document.getElementById('success').classList.add('visible');
+      const s = document.getElementById('success');
+      s.style.display = 'block';
     });
   </script>
 
