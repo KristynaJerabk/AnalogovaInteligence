@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Analogová Inteligence – AIton</title>
-  <meta name="description" content="AIton je offline setkání kde čteš, přemýšlíš a píšeš bez AI a bez obrazovky. Plzeň 2026.">
+  <title>Analogová Inteligence – Offline setkání</title>
+  <meta name="description" content="Analogová Inteligence je offline setkání kde čteš, přemýšlíš a píšeš bez AI a bez obrazovky. Plzeň 2026.">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -16,7 +16,7 @@
       line-height: 1.5;
     }
 
-    .wrap { max-width: 960px; margin: 0 auto; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 50px; }
 
     .skip-link {
       position: absolute;
@@ -32,19 +32,27 @@
     }
     .skip-link:focus { top: 0; left: 0; }
 
-    :focus-visible {
-      outline: 3px solid #5b9aff;
-      outline-offset: 3px;
-    }
+    :focus-visible { outline: 3px solid #5b9aff; outline-offset: 3px; }
 
-    .top { background: #12100e; padding: 48px 50px; }
+    section { padding: 64px 0; border-bottom: 0.5px solid rgba(255,255,255,0.07); }
+    section:last-of-type { border-bottom: none; }
 
     .meta {
       font-size: 11px;
       letter-spacing: 4px;
       color: #8a8278;
-      margin-bottom: 52px;
+      margin-bottom: 32px;
     }
+
+    h1 {
+      font-size: clamp(52px, 10vw, 100px);
+      font-weight: 700;
+      color: #f0ece4;
+      line-height: 0.88;
+      letter-spacing: -4px;
+      margin-bottom: 40px;
+    }
+    h1 .ai { color: #5b9aff; }
 
     .provokace-italic {
       font-size: 16px;
@@ -52,15 +60,7 @@
       line-height: 1.9;
       margin-bottom: 12px;
       font-style: italic;
-    }
-
-    .provokace-mid {
-      font-size: clamp(24px, 4vw, 42px);
-      font-weight: 700;
-      color: #e0607a;
-      line-height: 1.2;
-      letter-spacing: -1px;
-      margin-bottom: 16px;
+      max-width: 560px;
     }
 
     .provokace-bold {
@@ -69,7 +69,15 @@
       color: #f0ece4;
       line-height: 1.2;
       letter-spacing: -1px;
-      margin-bottom: 48px;
+      margin-bottom: 4px;
+    }
+
+    .provokace-mid {
+      font-size: clamp(24px, 4vw, 42px);
+      font-weight: 700;
+      color: #e0607a;
+      line-height: 1.2;
+      letter-spacing: -1px;
     }
 
     .kroky {
@@ -79,115 +87,92 @@
       list-style: none;
     }
 
-    .krok { border-left: 3px solid; padding-left: 16px; }
+    .krok { border-left: 2px solid; padding-left: 16px; }
     .krok:nth-child(1) { border-color: #5b9aff; }
     .krok:nth-child(2) { border-color: #22CC66; }
     .krok:nth-child(3) { border-color: #e0607a; }
     .krok:nth-child(4) { border-color: #f0a030; }
 
-    .krok-num {
-      font-size: 11px;
-      color: #6a6258;
-      letter-spacing: 2px;
-      margin-bottom: 6px;
-    }
+    .krok-num { font-size: 11px; color: #6a6258; letter-spacing: 2px; margin-bottom: 6px; }
+    .krok-title { font-size: 16px; font-weight: 600; color: #f0ece4; margin-bottom: 6px; }
+    .krok-desc { font-size: 14px; color: #a09890; line-height: 1.7; }
 
-    .krok-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: #f0ece4;
-      margin-bottom: 6px;
-    }
-
-    .krok-desc {
-      font-size: 15px;
-      color: #a09890;
-      line-height: 1.7;
-    }
-
-    .aiton {
-      background: #12100e;
-      padding: 48px 50px;
-      border-top: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .aiton h3 {
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 700;
-      color: #f0ece4;
-      letter-spacing: -2px;
-      margin-bottom: 16px;
-    }
-
-    .aiton h3 span { color: #5b9aff; }
-
-    .aiton-desc {
-      font-size: 16px;
-      color: #9a9288;
-      line-height: 1.8;
-      max-width: 600px;
-    }
-
-    .aiton-desc strong {
-      color: #f0ece4;
-      font-weight: 400;
-    }
-      background: #12100e;
-      padding: 48px 50px;
-      border-top: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .bottom-grid {
+    .aiton-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
       align-items: start;
     }
 
-    h2 {
-      font-size: clamp(28px, 4vw, 48px);
+    .aiton-grid h2 {
+      font-size: clamp(24px, 3vw, 36px);
       font-weight: 700;
       color: #f0ece4;
-      line-height: 1.1;
-      letter-spacing: -2px;
-      margin-bottom: 32px;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
     }
-    h2 span { color: #22CC66; }
 
-    .pro-koho { display: flex; flex-direction: column; gap: 14px; list-style: none; }
-    .pro-item { display: flex; gap: 12px; align-items: flex-start; }
+    .aiton-grid h2 span { color: #5b9aff; }
 
-    .pro-plus { font-weight: 700; font-size: 18px; line-height: 1.4; }
-    .pro-plus.blue { color: #5b9aff; }
-    .pro-plus.green { color: #22CC66; }
-    .pro-plus.pink { color: #e0607a; }
+    .aiton-desc {
+      font-size: 15px;
+      color: #9a9288;
+      line-height: 1.8;
+    }
 
-    .pro-text { font-size: 15px; color: #a09890; line-height: 1.7; }
+    .aiton-example {
+      background: rgba(255,255,255,0.04);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 24px;
+    }
 
-    .reg-label {
+    .aiton-example-label {
       font-size: 11px;
       letter-spacing: 3px;
-      color: #8a8278;
-      margin-bottom: 16px;
+      color: #6a6258;
+      margin-bottom: 12px;
+    }
+
+    .aiton-example-text {
+      font-size: 15px;
+      color: #c0b8b0;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .karty {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      list-style: none;
+    }
+
+    .karta {
+      background: rgba(255,255,255,0.03);
+      border: 0.5px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .karta-plus {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
       display: block;
     }
 
-    .reg-desc {
-      font-size: 15px;
-      color: #9a9288;
-      margin-bottom: 24px;
-      line-height: 1.7;
-    }
+    .karta-text { font-size: 14px; color: #a09890; line-height: 1.7; }
 
-    .reg-form { display: flex; flex-direction: column; gap: 16px; }
+    .reg-label { font-size: 11px; letter-spacing: 3px; color: #8a8278; margin-bottom: 16px; display: block; }
+
+    .reg-desc { font-size: 15px; color: #9a9288; margin-bottom: 8px; line-height: 1.7; }
+    .reg-sub { font-size: 13px; color: #6a6258; margin-bottom: 28px; }
+
+    .reg-form { display: flex; flex-direction: column; gap: 16px; max-width: 480px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
 
-    .form-group label {
-      font-size: 12px;
-      letter-spacing: 2px;
-      color: #a09890;
-      font-weight: 500;
-    }
+    .form-group label { font-size: 12px; letter-spacing: 2px; color: #a09890; font-weight: 500; }
 
     .form-group input,
     .form-group textarea {
@@ -211,12 +196,7 @@
 
     .form-group textarea { resize: vertical; min-height: 80px; }
 
-    .gdpr-label {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      cursor: pointer;
-    }
+    .gdpr-label { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
 
     .gdpr-label input[type="checkbox"] {
       margin-top: 3px;
@@ -227,18 +207,9 @@
       cursor: pointer;
     }
 
-    .gdpr-text {
-      font-size: 13px;
-      color: #c0b8b0;
-      line-height: 1.6;
-    }
+    .gdpr-text { font-size: 13px; color: #c0b8b0; line-height: 1.6; }
 
-    .form-error {
-      font-size: 12px;
-      color: #e0607a;
-      margin-top: 4px;
-      display: none;
-    }
+    .form-error { font-size: 12px; color: #e0607a; margin-top: 4px; display: none; }
 
     .reg-form button {
       background: #e0407a;
@@ -268,12 +239,13 @@
       text-align: center;
       margin-top: 8px;
       border-radius: 4px;
+      max-width: 480px;
     }
 
     footer {
       background: #0a0806;
-      padding: 16px 50px;
-      border-top: 1px solid rgba(255,255,255,0.04);
+      padding: 16px 0;
+      border-top: 0.5px solid rgba(255,255,255,0.04);
     }
 
     .footer-inner {
@@ -290,17 +262,18 @@
       font-size: 12px;
       color: #a09890;
       line-height: 1.7;
-      border-top: 1px solid rgba(255,255,255,0.04);
+      border-top: 0.5px solid rgba(255,255,255,0.04);
       padding-top: 16px;
     }
 
     .footer-gdpr a { color: #5b9aff; text-decoration: none; }
 
     @media (max-width: 640px) {
-      .top, .bottom { padding: 32px 24px; }
-      footer { padding: 16px 24px; }
+      .wrap { padding: 0 24px; }
+      section { padding: 40px 0; }
       .kroky { grid-template-columns: 1fr; gap: 24px; }
-      .bottom-grid { grid-template-columns: 1fr; gap: 40px; }
+      .aiton-grid { grid-template-columns: 1fr; }
+      .karty { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -309,27 +282,19 @@
   <a href="#registrace" class="skip-link">Přeskočit na registraci</a>
 
   <main>
-    <section class="top" aria-label="Úvod">
+    <section aria-label="Úvod">
       <div class="wrap">
         <p class="meta">PLZEŇ · <span style="color:#22CC66; letter-spacing:4px;">ZÁŘÍ 2026</span></p>
-
-        <svg viewBox="0 0 680 300" role="img" aria-label="Logo Analogová Inteligence" style="width:100%; max-width:600px; margin-bottom:32px; margin-left:-52px;">
-          <title>Logo Analogová Inteligence</title>
-          <text x="60" y="140" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="110" font-weight="700" fill="#f0ece4" letter-spacing="-5"><tspan fill="#5b9aff">A</tspan>nalogová</text>
-          <rect x="60" y="162" width="22" height="10" rx="3" fill="#22CC66"/>
-          <rect x="60" y="170" width="22" height="7" fill="#4a8278"/>
-          <rect x="60" y="177" width="22" height="65" fill="#5b9aff"/>
-          <rect x="60" y="242" width="22" height="12" fill="#4a7ab8"/>
-          <polygon points="60,254 82,254 71,282" fill="#3a5a8a"/>
-          <polygon points="65,266 77,266 71,282" fill="#f0ece4"/>
-          <text x="90" y="255" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="110" font-weight="700" fill="#f0ece4" letter-spacing="-5">nteligence</text>
-        </svg>
-
-        <p class="provokace-italic">AI každý den? Dobře. Šetří čas a nikdy si nestěžuje. Jenže za každým dobrým nástrojem stojí ještě lepší člověk.</p>
+        <h1><span class="ai">A</span>nalogová<br><span class="ai">I</span>nteligence</h1>
+        <p class="provokace-italic">AI každý den? Dobře. Šetří čas a nikdy se nestěžuje. Jenže za každým dobrým nástrojem stojí ještě lepší člověk.</p>
         <p class="provokace-bold">Buď tím člověkem.</p>
         <p class="provokace-mid">Buď IN.</p>
+      </div>
+    </section>
 
-        <div class="kroky" role="list" aria-label="Jak to funguje">
+    <section aria-label="Jak to funguje">
+      <div class="wrap">
+        <div class="kroky" role="list">
           <div class="krok" role="listitem">
             <p class="krok-num">01</p>
             <p class="krok-title">Těšíš se</p>
@@ -354,71 +319,72 @@
       </div>
     </section>
 
-    <section class="aiton" aria-label="Co je AIton">
+    <section aria-label="Co je AIton">
       <div class="wrap">
-        <h3>Přijď na <span>AIton</span>.</h3>
-        <p class="aiton-desc">
-          Jeden lektor. Osm až dvanáct lidí. Dvě hodiny bez obrazovky.<br><br>
-          Texty co donutí přemýšlet. Úlohy co překvapí.<br><br>
-          Každý pracuje po svém. Není třeba sdílet. Ale parta tam je.<br><br>
-          <strong>Žádná umělá inteligence. Jen ta tvoje.</strong>
-        </p>
+        <div class="aiton-grid">
+          <div>
+            <h2>Přijď na <span>AIton</span>.</h2>
+            <p class="aiton-desc">Jeden lektor. Osm až dvanáct lidí. Dvě hodiny bez obrazovky.<br><br>Texty co donutí přemýšlet. Úlohy co překvapí. Možná něco co bylo naposledy ve škole – a teď se po tom trochu stýská.<br><br>Každý pracuje po svém. Nikdo nenutí sdílet. Ale parta tam je.</p>
+          </div>
+          <div class="aiton-example">
+            <p class="aiton-example-label">TŘEBA TAKHLE</p>
+            <p class="aiton-example-text">Dostaneš krátký text o tom proč je AI skvělá. A pak ho budeš muset vyvrátit. Vlastní hlavou. Bez googlu.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="bottom" aria-label="Pro koho a registrace">
+    <section aria-label="Pro koho">
       <div class="wrap">
-        <div class="bottom-grid">
-          <div>
-            <h2>Hlava je fakt<br>dobrá věc.<br><span>Zkus ji.</span></h2>
-            <ul class="pro-koho" aria-label="Pro koho je AI určena">
-              <li class="pro-item">
-                <span class="pro-plus blue" aria-hidden="true">+</span>
-                <p class="pro-text">Používáš AI každý den. A je to super. Ale někdy tě napadne – hele, není to už trošku moc?</p>
-              </li>
-              <li class="pro-item">
-                <span class="pro-plus green" aria-hidden="true">+</span>
-                <p class="pro-text">Tušíš, že kritické myšlení se neudržuje samo. Ale nikdo o tom nemluví.</p>
-              </li>
-              <li class="pro-item">
-                <span class="pro-plus pink" aria-hidden="true">+</span>
-                <p class="pro-text">Prostě si chceš sednout, vzít tužku a zjistit že to ještě jde.</p>
-              </li>
-            </ul>
-          </div>
+        <ul class="karty">
+          <li class="karta">
+            <span class="karta-plus" style="color:#5b9aff;">+</span>
+            <p class="karta-text">AI používáš každý den a jsi za to rád. Ale někdy tě napadne – je to ještě moje práce, nebo AIky?</p>
+          </li>
+          <li class="karta">
+            <span class="karta-plus" style="color:#22CC66;">+</span>
+            <p class="karta-text">Tušíš, že kritické myšlení se neudržuje samo. Ale nikdo o tom nemluví.</p>
+          </li>
+          <li class="karta">
+            <span class="karta-plus" style="color:#e0607a;">+</span>
+            <p class="karta-text">Prostě si chceš sednout, vzít tužku a zjistit že to ještě jde.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-          <div id="registrace">
-            <span class="reg-label">REGISTRACE</span>
-            <p class="reg-desc">Děláme to poprvé. Nemáme plán, ale víme proč to děláme. Pro lidi co chtějí být lepší než jejich nástroje. Jsi in? Nech nám kontakt.</p>
-            <form class="reg-form" id="regForm" novalidate>
-              <div class="form-group">
-                <label for="jmeno">JMÉNO</label>
-                <input type="text" id="jmeno" name="jmeno" placeholder="Tvoje jméno" required autocomplete="name" aria-describedby="jmenoError" />
-                <span class="form-error" id="jmenoError" role="alert">Bez jména nebo přezdívky to nepůjde.</span>
-              </div>
-              <div class="form-group">
-                <label for="email">EMAIL</label>
-                <input type="email" id="email" name="email" placeholder="tvuj@email.cz" required autocomplete="email" aria-describedby="emailError" />
-                <span class="form-error" id="emailError" role="alert">Tohle nevypadá jako email. Zkus znovu.</span>
-              </div>
-              <div class="form-group">
-                <label for="proc">PROČ CHCEŠ PŘIJÍT? <span style="font-weight:400; letter-spacing:0; font-size:11px;">(nepovinné)</span></label>
-                <textarea id="proc" name="proc" placeholder="Napiš nám pár slov..." rows="3" aria-describedby="procHint"></textarea>
-                <span id="procHint" style="font-size:11px; color:#6a6258;">Pomůže nám to lépe připravit setkání.</span>
-              </div>
-              <div class="form-group">
-                <label class="gdpr-label" for="gdpr">
-                  <input type="checkbox" id="gdpr" required aria-describedby="gdprError" />
-                  <span class="gdpr-text">Souhlasím s tím, že moje jméno a email budou použity pouze pro kontaktování ohledně akce Analogová Inteligence. Žádné newslettery, žádné třetí strany. Kdykoli můžu napsat a požádat o výmaz.</span>
-                </label>
-                <span class="form-error" id="gdprError" role="alert">Bez souhlasu to nepůjde.</span>
-              </div>
-              <button type="submit" id="submitBtn">JSEM IN</button>
-            </form>
-            <div class="success" id="success" role="alert" aria-live="polite">
-              Díky! Ozveme se ti až bude datum. 🧠
-            </div>
+    <section id="registrace" aria-label="Registrace">
+      <div class="wrap">
+        <span class="reg-label">REGISTRACE</span>
+        <p class="reg-desc">Děláme to poprvé. Nemáme plán, ale víme proč to děláme. Pro lidi co chtějí být lepší než jejich nástroje. Jsi in? Nech nám kontakt.</p>
+        <p class="reg-sub">Dvě hodiny. Dvanáct lidí. Žádná AI.</p>
+        <form class="reg-form" id="regForm" novalidate>
+          <div class="form-group">
+            <label for="jmeno">JMÉNO</label>
+            <input type="text" id="jmeno" name="jmeno" placeholder="Tvoje jméno" required autocomplete="name" aria-describedby="jmenoError" />
+            <span class="form-error" id="jmenoError" role="alert">Bez jména nebo přezdívky to nepůjde.</span>
           </div>
+          <div class="form-group">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" placeholder="tvuj@email.cz" required autocomplete="email" aria-describedby="emailError" />
+            <span class="form-error" id="emailError" role="alert">Tohle nevypadá jako email. Zkus znovu.</span>
+          </div>
+          <div class="form-group">
+            <label for="proc">PROČ CHCEŠ PŘIJÍT? <span style="font-weight:400; letter-spacing:0; font-size:11px;">(nepovinné)</span></label>
+            <textarea id="proc" name="proc" placeholder="Napiš nám pár slov..." rows="3" aria-describedby="procHint"></textarea>
+            <span id="procHint" style="font-size:11px; color:#6a6258;">Pomůže nám to lépe připravit setkání.</span>
+          </div>
+          <div class="form-group">
+            <label class="gdpr-label" for="gdpr">
+              <input type="checkbox" id="gdpr" required aria-describedby="gdprError" />
+              <span class="gdpr-text">Souhlasím s tím, že moje jméno a email budou použity pouze pro kontaktování ohledně akce Analogová Inteligence. Žádné newslettery, žádné třetí strany. Kdykoli můžu napsat a požádat o výmaz.</span>
+            </label>
+            <span class="form-error" id="gdprError" role="alert">Bez souhlasu to nepůjde.</span>
+          </div>
+          <button type="submit" id="submitBtn">JSEM IN</button>
+        </form>
+        <div class="success" id="success" role="alert" aria-live="polite">
+          Díky! Ozveme se ti až bude datum. 🧠
         </div>
       </div>
     </section>
@@ -427,7 +393,7 @@
   <footer role="contentinfo">
     <div class="wrap">
       <div class="footer-inner">
-        <p>AI SE SNAŽÍ. ČLOVĚK UMÍ.</p>
+        <p>AI SE SNAŽÍ. MOZEK UMÍ.</p>
         <p><span>VSTUPNÉ DOBROVOLNÉ</span></p>
       </div>
       <p class="footer-gdpr">Sbíráme jméno a email. Používáme je jen abychom tě mohli kontaktovat ohledně akce. Data jsou uložena v Google Sheets. Neprodáváme je, nesdílíme je, neposíláme spam. Chceš výmaz? Napiš na <a href="mailto:analogova.inteligence@gmail.com">analogova.inteligence@gmail.com</a></p>
@@ -446,26 +412,14 @@
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       let valid = true;
 
-      if (!jmeno) {
-        jmenoError.style.display = 'block';
-        valid = false;
-      } else {
-        jmenoError.style.display = 'none';
-      }
+      if (!jmeno) { jmenoError.style.display = 'block'; valid = false; }
+      else { jmenoError.style.display = 'none'; }
 
-      if (!emailRegex.test(email)) {
-        emailError.style.display = 'block';
-        valid = false;
-      } else {
-        emailError.style.display = 'none';
-      }
+      if (!emailRegex.test(email)) { emailError.style.display = 'block'; valid = false; }
+      else { emailError.style.display = 'none'; }
 
-      if (!gdpr.checked) {
-        gdprError.style.display = 'block';
-        valid = false;
-      } else {
-        gdprError.style.display = 'none';
-      }
+      if (!gdpr.checked) { gdprError.style.display = 'block'; valid = false; }
+      else { gdprError.style.display = 'none'; }
 
       if (!valid) return;
 
