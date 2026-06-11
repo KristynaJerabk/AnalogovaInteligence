@@ -105,7 +105,33 @@
       line-height: 1.7;
     }
 
-    .bottom {
+    .aiton {
+      background: #12100e;
+      padding: 48px 50px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .aiton h3 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: #f0ece4;
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+
+    .aiton h3 span { color: #5b9aff; }
+
+    .aiton-desc {
+      font-size: 16px;
+      color: #9a9288;
+      line-height: 1.8;
+      max-width: 600px;
+    }
+
+    .aiton-desc strong {
+      color: #f0ece4;
+      font-weight: 400;
+    }
       background: #12100e;
       padding: 48px 50px;
       border-top: 1px solid rgba(255,255,255,0.07);
@@ -328,6 +354,18 @@
       </div>
     </section>
 
+    <section class="aiton" aria-label="Co je AIton">
+      <div class="wrap">
+        <h3>Přijď na <span>AIton</span>.</h3>
+        <p class="aiton-desc">
+          Jeden lektor. Osm až dvanáct lidí. Dvě hodiny bez obrazovky.<br><br>
+          Texty co donutí přemýšlet. Úlohy co překvapí. Možná něco co bylo naposledy ve škole – a teď se po tom trochu stýská.<br><br>
+          Každý pracuje po svém. Nikdo nenutí sdílet. Ale parta tam je.<br><br>
+          <strong>Žádná umělá inteligence. Jen ta tvoje.</strong>
+        </p>
+      </div>
+    </section>
+
     <section class="bottom" aria-label="Pro koho a registrace">
       <div class="wrap">
         <div class="bottom-grid">
@@ -340,7 +378,7 @@
               </li>
               <li class="pro-item">
                 <span class="pro-plus green" aria-hidden="true">+</span>
-                <p class="pro-text">Mozek pracoval celý den. Jen ne tvůj a to tě trochu štve.</p>
+                <p class="pro-text">Tušíš, že kritické myšlení se neudržuje samo. Ale nikdo o tom nemluví.</p>
               </li>
               <li class="pro-item">
                 <span class="pro-plus pink" aria-hidden="true">+</span>
@@ -351,8 +389,7 @@
 
           <div id="registrace">
             <span class="reg-label">REGISTRACE</span>
-            <p class="reg-desc">Děláme to poprvé. Nemáme přesný datum, ale máme nápad a lektora. Nech nám kontakt – až bude místo a čas, ozveme se.</p>
-            <p class="reg-desc">Zkus vydržet 2 hodiny bez AI. Limit: 12 lidí.</p>
+            <p class="reg-desc">Děláme to poprvé. Nemáme plán, ale víme proč to děláme. Pro lidi co chtějí být lepší než jejich nástroje. Jsi in? Nech nám kontakt.</p>
             <form class="reg-form" id="regForm" novalidate>
               <div class="form-group">
                 <label for="jmeno">JMÉNO</label>
